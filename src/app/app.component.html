@@ -1,0 +1,181 @@
+<ng-container *ngIf="load == true">
+  <div class="loading ">
+    <h1 class="title-text">
+      <span class="loading-text">There Are No Limits To What You Can Accomplish, <br> Only Those You Set for
+        Yourself.</span>
+    </h1>
+  </div>
+</ng-container>
+
+
+
+<div [ngClass]="{'stop-scroll': load == true, 'main-div': load == false }">
+
+
+  <particles [params]="myParams" [style]="myStyle" [width]="width" [height]="height"></particles>
+
+  <ng-container *ngIf="load == false">
+    <div class="parent" style="position: absolute; width: 100%; height: 100%; z-index: 2; pointer-events: none;">
+      <div class="everything">
+        <div class="section1">
+          <div class="grid1">
+            <div class="title">
+              <h1 class="title-text">
+                Paul Obeid,
+                <br>
+                <span style="text-decoration: line-through; text-decoration-thickness: 4px ; color: #4c00ff ;">
+                  <span style="color: rgba(255, 255, 255, 0.719);">Pursued University Education paths</span>
+                </span>
+                <br>
+                <span>A</span>
+                <span style=" color: #4c00ff ;"> Self-Taught</span>
+                <br>
+                <span> Full Stack Developer</span>
+              </h1>
+            </div>
+            <img *ngIf="!isWindowWidth768" src="../assets/pp24.png" alt="" class="profile-img">
+            <img *ngIf="isWindowWidth768" src="../assets/pp29.png" alt="" class="profile-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>
+
+<ng-container *ngIf="load == false">
+  <div class="everything">
+    <div class=" section2">
+      <div class="grid2">
+        <div class="grid-item">
+          <div class="circle-image  opacity-true">
+            <img src="../assets/pp25.png" alt="" srcset="">
+          </div>
+        </div>
+        <div class="grid-item">
+          <div class="title">
+            <h1 class="neon-title-text opacity-true">Who Am I?</h1>
+            <br>
+            <h3 class="title-text opacity-true">
+              As a self-taught full-stack developer,
+              I discovered my passion for programming through a combination of private training,
+              online courses on platforms like Udemy and Coursera, and self-study. Initially,
+              I was denied a scholarship to study hospitality management but was inspired by experienced developers to
+              pursue a career in technology.
+              I honed my skills through these various sources of learning and through hard work, I secured my first job
+              as a full-stack developer at the age of 19.
+              Along with pursuing a university degree, I remain dedicated to continuously learning and growing in the
+              field of full-stack development.
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section3">
+      <h1 style="margin-top: 5%;" class="neon-title-text">Deep knowledge In:</h1>
+      <div class="grid3">
+        <div class="flip-card" *ngFor="let skill of deepDiveSkills">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <h1 class="title-text">{{skill.name}}</h1>
+              <img [src]="skill.image" alt="Logo">
+            </div>
+            <div class="flip-card-back">
+              <h1>{{skill.name}}</h1>
+              <p>{{skill.description}}</p>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="section4">
+      <h1 style="margin-top: 5%;" class="neon-title-text">Solid Understandding Of:</h1>
+      <div class="grid4">
+        <div class="grid-item2" *ngFor="let lang of languages">
+          <div class="small-card box-shadow-3d">
+            <p>{{lang}}</p>
+          </div>
+        </div>
+        <!-- <div class="grid-4-2"> -->
+
+        <!-- </div> -->
+
+      </div>
+      <h1 style="margin-top: 5%;" class="neon-title-text">More Details In My Resume:</h1>
+      <div class="download-btn" (click)="downloadPDF()">DOWNLOAD IT NOW!</div>
+    </div>
+
+    <!-- section5 -->
+    <div class="section3">
+      <h1 style="margin-top: 5%;" class="neon-title-text">Work History:</h1>
+      <div class="step" (click)="ActiveDisactiveWork(i)" *ngFor="let work of workHistory; let i = index"
+        [ngClass]="{'step-active': work.active == true}">
+        <div>
+          <div class="circle"><i class="fa fa-check"></i></div>
+        </div>
+        <div>
+          <div class="title">{{work.title}}</div>
+          <div *ngIf="work.active == true" class="caption">
+            <p class="title-text">{{work.caption}}</p>
+          </div>
+          <div *ngIf="work.active == false" class="caption" style="color: rgba(151, 151, 151, 0.356);"> {{work.caption}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- section6 -->
+
+    <div class="section4">
+      <h1 style="margin-top: 5%;" class="neon-title-text">It would be nice connecting you:</h1>
+      <div class="grid6">
+        
+        <a style="z-index: 4;" target="_blank" href="https://www.instagram.com/paul.obd/"><img class="svg" src="../assets/instagram.png" alt="" ></a>
+        <a style="z-index: 4;" target="_blank" href="https://www.linkedin.com/in/paul-obeid"><img class="svg" src="../assets/linkedin.png" alt="" ></a>
+      </div>
+      <h1  class="neon-title-text">Do Not Hestitate To Contact Me:</h1>
+      <a #email style="display: mone;" href="mailto:paul.obd@hotmail.com"></a>
+      <div class="download-btn" (click)="email.click()">Send Me an Email!</div>
+    </div>
+
+    <!-- copyright -->
+
+    <div class="copyrites">
+      Copyright   &copy; Paul Obeid | paul.obd@hotamil.com
+    </div>
+
+
+  </div>
+</ng-container>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- </ng-container> -->
